@@ -131,6 +131,8 @@ def migrate_db(db_in, db_out):
             if db == 'address':
                 # remove the street address
                 new_row = redact(row, 2)
+            elif db == 'statement':
+                new_row = row
     
             # format the generic sql command for this row and table
             cmd = sql.format(db, ', '.join(['%s'] * len(new_row)))
